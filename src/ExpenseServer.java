@@ -45,16 +45,11 @@ public class ExpenseServer {
     private static final Map<String, Integer> sessions =
         new ConcurrentHashMap<String, Integer>();
 
-public static void main(String[] args) {
-    int port = Integer.parseInt(
-        System.getenv().getOrDefault("PORT", "8080")
-    );
-
-    try (ServerSocket server = new ServerSocket(port)) {
-        System.out.println(
-            "ExpenseServer running on port " + port
-        );
-
+    public static void main(String[] args) {
+        try (ServerSocket server = new ServerSocket(8080)) {
+            System.out.println(
+                "ExpenseServer running at http://localhost:8080"
+            );
 
             while (true) {
                 final Socket client = server.accept();
